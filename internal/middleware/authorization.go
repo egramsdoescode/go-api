@@ -31,7 +31,7 @@ func Authorization(next http.Handler) http.Handler {
         }
 
         var loginDetails *tools.LoginDetails
-        loginDetails = (*database).getUserLoginDetails(username)
+        loginDetails = (*database).GetUserLoginDetails(username)
 
         if(loginDetails == nil || (token != (*loginDetails).AuthToken)) {
             log.Error(UnAuthorizedError)
